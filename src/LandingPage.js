@@ -1,5 +1,5 @@
-import { Button, Grid, Paper, TextField } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { Button, Grid, Paper } from "@mui/material";
+import React, { useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
 import "./App.css";
@@ -40,7 +40,7 @@ export const LandingPage = () => {
 
     useEffect(() => {
         if (localStorage.getItem("accessToken")) {
-            history.push('/results')
+            history.push("/results");
         }
 
         if (location.pathname === "/callback" && location.hash) {
@@ -49,9 +49,9 @@ export const LandingPage = () => {
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("tokenType", tokenType);
             localStorage.setItem("expiresIn", expiresIn);
-            history.push('/results')
+            history.push("/results");
         }
-    }, []);
+    });
 
     return (
         <div className='page'>
