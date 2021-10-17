@@ -7,12 +7,15 @@ import * as reactRouter from "react-router-dom";
 jest.mock("react-router-dom");
 
 const locationSpy = jest.spyOn(reactRouter, "useLocation");
-const localStorageSpy = jest.spyOn(Storage.prototype, "setItem")
+reactRouter.useHistory = () => [];
+const historySpy = jest.spyOn(reactRouter, "useHistory");
+const localStorageSpy = jest.spyOn(Storage.prototype, "setItem");
 
 describe("LandingPage", () => {
     describe("Without Credentials", () => {
         beforeEach(() => {
             locationSpy.mockReturnValue({ pathname: "/", hash: "" });
+            historySpy.mockReturnValue([]);
         });
 
         afterEach(() => {
@@ -39,19 +42,20 @@ describe("LandingPage", () => {
                 pathname: "/callback",
                 hash: "#access_token=butterscotch&token_type=Bearer&expires_in=3600",
             });
-        })
+            historySpy.mockReturnValue([]);
+        });
 
         afterEach(() => {
             jest.clearAllMocks();
             jest.resetModules();
-        })
+        });
 
-        it(('sets local storage with credentials'), () => {
-            render(<LandingPage />)
+        it("sets local storage with credentials", () => {
+            render(<LandingPage />);
 
-            expect(localStorageSpy).toHaveBeenCalledTimes(3)
-            expect(localStorageSpy).toHaveBeenCalledWith('accessToken', 'butterscotch')
-            expect(localStorageSpy).toHaveBeenCalledWith('tokenType', 'Bearer')
-        })
-    })
+            expect(localStorageSpy).toHaveBeenCalledTimes(3);
+            expect(localStorageSpy).toHaveBeenCalledWith("accessToken", "butterscotch");
+            expect(localStorageSpy).toHaveBeenCalledWith("tokenType", "Bearer");
+        });
+    });
 });
