@@ -1,38 +1,79 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.basic-container {
+    /* padding: 3em; */
+    border-radius: 6px !important;
+    overflow: hidden;
+    display: flex;
+    flex-flow: column;
+    background-color: #464646 !important;
+    color: #f1f1f1 !important;
+}
+
+.landing-page__text-container {
+    padding: 3em;
+    font-weight: 500;
+    line-height: 2em;
+}
+
+.login-button {
+    max-width: 33%;
+    padding: em 3em !important;
+    margin: 2em auto !important;
+}
+body {
+    background-color: #393939;
+    color: #f1f1f1 !important;
+    font-family: "Montserrat", sans-serif;
+}
+.page {
+    max-width: 70%;
+    margin: 2em auto;
+}
+.primary-button {
+    color: #393939 !important;
+    background-color: #1ed761 !important;
+    font-weight: bolder !important;
+    font-family: "Montserrat", sans-serif !important;
+    border-radius: 50px !important;
+}
+.mt-4 {
+    margin-top: 2.5em !important;
 }
