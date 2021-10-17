@@ -5,11 +5,14 @@ import { App } from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { LandingPage } from "./LandingPage";
 import { BrowserRouter, Route } from "react-router-dom";
+import { Results } from "./Results";
 
 ReactDOM.render(
     <React.StrictMode>
         <BrowserRouter>
-            <Route path='/' component={LandingPage} strict={true} />
+            <Route path='/' component={LandingPage} exact />
+            <Route path='/callback' component={LandingPage} exact />
+            <Route path='/results' component={Results} exact />{" "}
         </BrowserRouter>
     </React.StrictMode>,
     document.getElementById("root")

@@ -10,22 +10,8 @@ const redirectUri = "http://localhost:3000/callback";
 const myClientId = "fb7ba895f27e4ba19d6e59eadac95775";
 
 export const LandingPage = () => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+    const history = useHistory();
     const location = useLocation();
-    const accessToken = localStorage.getItem("accessToken");
-    const alreadyLoggedIn = !!accessToken;
-    const message = alreadyLoggedIn ? "Youre already logged in!" : "Please log in below";
-
-    const handlePasswordChange = (e) => {
-        const newPassword = e.target.value;
-        setPassword(newPassword);
-    };
-
-    let handleUsernameChange = (e) => {
-        const newUsername = e.target.value;
-        setUsername(newUsername);
-    };
 
     const parseHash = () => {
         const hashList = location.hash.split(/&|#/);
@@ -53,12 +39,17 @@ export const LandingPage = () => {
     };
 
     useEffect(() => {
+        if (localStorage.getItem("accessToken")) {
+            history.push('/results')
+        }
+
         if (location.pathname === "/callback" && location.hash) {
             const { access_token: accessToken, token_type: tokenType, expires_in: expiresIn } = parseHash();
 
             localStorage.setItem("accessToken", accessToken);
             localStorage.setItem("tokenType", tokenType);
             localStorage.setItem("expiresIn", expiresIn);
+            history.push('/results')
         }
     }, []);
 

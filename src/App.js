@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { createBrowserHistory } from "history";
 import { LandingPage } from "./LandingPage";
+import { Results } from "./Results";
 
 export const App = () => {
     // const history = createBrowserHistory();
@@ -10,6 +10,7 @@ export const App = () => {
             <Switch>
                 <Route path='/' component={LandingPage} exact />
                 <Route path='/callback' component={LandingPage} exact />
+                <Route path='/results' component={Results} exact />
             </Switch>
         </BrowserRouter>
     );
