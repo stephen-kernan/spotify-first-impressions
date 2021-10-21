@@ -4,15 +4,31 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { LandingPage } from "./LandingPage";
 import { BrowserRouter, Route } from "react-router-dom";
-import { Results } from "./Results";
+import { Results } from "./Results/Results";
+import { ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
+import { App } from "./App";
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: "#1ed761",
+        },
+        text: {
+            main: "#f1f1f1",
+        },
+        background: {
+            paper: "#474747",
+            default: "#393939",
+        },
+    },
+});
 
 ReactDOM.render(
     <React.StrictMode>
-        <BrowserRouter>
-            <Route path='/' component={LandingPage} exact />
-            <Route path='/callback' component={LandingPage} exact />
-            <Route path='/results' component={Results} exact />{" "}
-        </BrowserRouter>
+        <ThemeProvider theme={theme}>
+            <App />
+        </ThemeProvider>
     </React.StrictMode>,
     document.getElementById("root")
 );
