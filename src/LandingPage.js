@@ -5,9 +5,9 @@ import { useHistory, useLocation } from "react-router-dom";
 import "./App.css";
 import concertImage from "./img/concert.jpg";
 
-const spotifyScopes = "user-read-private user-read-email";
+const spotifyScopes = "user-read-private user-read-email user-library-read";
 const redirectUri = "http://localhost:3000/callback";
-const myClientId = "fb7ba895f27e4ba19d6e59eadac95775";
+const myClientId = "ff338029f29a4522bf6f305886ced755";
 
 export const LandingPage = () => {
     const history = useHistory();

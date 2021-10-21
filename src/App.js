@@ -1,16 +1,17 @@
 import "./App.css";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { LandingPage } from "./LandingPage";
-import { Results } from "./Results";
+import { Results } from "./Results/Results";
+import { PageRoute } from "./PageRoute";
 
 export const App = () => {
     // const history = createBrowserHistory();
     return (
         <BrowserRouter>
             <Switch>
-                <Route path='/' component={LandingPage} exact />
-                <Route path='/callback' component={LandingPage} exact />
-                <Route path='/results' component={Results} exact />
+                <PageRoute path='/' component={LandingPage} exact />
+                <PageRoute path='/callback' component={LandingPage} exact />
+                <PageRoute path='/results' component={Results} exact />
             </Switch>
         </BrowserRouter>
     );
